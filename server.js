@@ -13,7 +13,7 @@ app.use(cors());
 app.use(bodyParser.json());
 
 app.get('/', (request, response) => {
-    console.log("Yo");
+    response.json("Yo");
 });
 
 app.get('/quizzes', (request, response) => {
