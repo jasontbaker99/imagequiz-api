@@ -23,17 +23,38 @@ app.get('/quizzes', (request, response) => {
     response.json(metadata);
 });
 
-app.get('/quizzes/:id', (request, response) => {
-    let questions = data.quizzes.map(x=>{
-        return {q: x.questions}
+app.get('/quizzes/1', (request, response) => {
+    let quiz = data.quizzes.map(x=>{
+        if(x.id == 1){
+            return x.questions;
+        }
     });
-    response.json(questions);
+    response.json(quiz);
+});
+
+app.get('/quizzes/2', (request, response) => {
+    let quiz = data.quizzes.map(x=>{
+        if(x.id == 2){
+            return x.questions;
+        }
+    });
+    response.json(quiz);
+});
+
+app.get('/quizzes/3', (request, response) => {
+    let quiz = data.quizzes.map(x=>{
+        if(x.id == 3){
+            return x.questions;
+        }
+    });
+    response.json(quiz);
 });
 
 app.post('/score', (request, response) => {
     let id = request.body.id;
     let score = request.body.score;
     data.scores.push({id: id, score: score});
+    console.log("Yo");
     response.json({message: 'Score posted ... Done'});
 });
 
