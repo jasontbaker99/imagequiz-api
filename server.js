@@ -59,8 +59,8 @@ app.post('/score', (request, response) => {
 });
 
 app.post('/getscore', (request, response) => {
-    let score = data.score;
-    response.json(score);
+    let scores = data.scores;
+    response.json(scores);
 });
 
 app.listen(port, () => {
