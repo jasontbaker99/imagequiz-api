@@ -58,11 +58,6 @@ app.post('/score', (request, response) => {
     response.json({message: 'Score posted ... Done'});
 });
 
-app.post('/getscore', (request, response) => {
-    let scores = data.scores;
-    response.json(scores);
-});
-
 app.listen(port, () => {
     console.log('Listening on port '+port);
 });
