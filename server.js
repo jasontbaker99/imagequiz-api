@@ -1,7 +1,8 @@
 const express = require('express');
 var cors = require('cors');
 var data = require('./data');
-
+var bodyParser = require('body-parser');
+const { request } = require('express');
 const app = express();
 
 const port = process.env.PORT || 3000;
@@ -9,7 +10,7 @@ const port = process.env.PORT || 3000;
 
 //middlewares
 app.use(cors());
-
+app.use(bodyParser.json());
 
 app.get('/', (request, response) => {
     console.log("Yo");
@@ -27,6 +28,13 @@ app.get('/quizzes/:id', (request, response) => {
         return {q: x.questions}
     });
     response.json(questions);
+});
+
+app.post('/score', (request, response) => {
+    let id = request.body.id;
+    let score = request.body.score;
+    data.scores.push({id: id, score: score});
+    response.json({message: 'Score posted ... Done'});
 });
 
 app.listen(port, () => {

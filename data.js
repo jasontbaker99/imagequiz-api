@@ -24,6 +24,7 @@ let bird = {name: 'bird', id: 2, picture: 'bird.png', questions:[bq1,bq2,bq3,bq4
 let flower = {name: 'flower', id: 3, picture: 'daffodil.png', questions:[fq1,fq2,fq3,fq4,fq5,fq6]};
 let quizzes = [mammal,bird,flower];
 
-let scores = 0;
+let scores = [];
 
+module.exports.scores = scores;
 module.exports.quizzes = quizzes;
